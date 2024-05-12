@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 24px;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Add/Edit Employee</h1>
+<form action="#" th:action="@{/save}" th:object="${employee}" method="post">
+    <input type="hidden" th:field="*{empId}"/>
+    <label>First Name: <input type="text" th:field="*{firstName}"/></label>
+    <label>Last Name: <input type="text" th:field="*{lastName}"/></label>
+    <label>Email: <input type="text" th:field="*{emailId}"/></label>
+    <label>Designation: <input type="text" th:field="*{designation}"/></label>
+    <label>Salary: <input type="text" th:field="*{salary}"/></label>
+    <input type="submit" value="Save"/>
+</form>
+<a href="/">Back to Employee List</a>
+<script src="/path/to/validation.js"></script>
+</body>
+</html>

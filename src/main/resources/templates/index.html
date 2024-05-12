@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 1200px; /* Adjust max-width as needed */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .add-user-btn {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            margin-bottom: 10px;
+            margin-left: 20px; /* Move the button to the left */
+            font-weight: bold; /* Make the button text bold */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-weight: bold; /* Make the table text bold */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+            margin: 0 5px;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+        }
+        .btn-group a {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Employee List</h1>
+    <a href="/new" class="add-user-btn">Add Employee</a>
+    <table>
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email ID</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employees}">
+            <td th:text="${employee.firstName}"></td>
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.emailId}"></td>
+            <td class="btn-group">
+                <a th:href="@{/edit/{id}(id=${employee.empId})}" class="update-btn">Edit</a>
+                <a th:href="@{/delete/{id}(id=${employee.empId})}" class="delete-btn">Delete</a>
+                <a th:href="@{/view/{id}(id=${employee.empId})}" class="view-btn">View</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

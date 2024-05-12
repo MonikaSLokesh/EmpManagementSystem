@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 24px;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555; /* Subtle color for labels */
+        }
+        span {
+            display: block;
+            margin-top: 5px; /* Reduce margin for better spacing */
+            font-size: 16px;
+            color: #333; /* Darker color for text */
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Employee Details</h1>
+<form>
+    <label>Employee ID:</label>
+    <span th:text="${employee.empId}"></span>
+
+    <label>First Name:</label>
+    <span th:text="${employee.firstName}"></span>
+
+    <label>Last Name:</label>
+    <span th:text="${employee.lastName}"></span>
+
+    <label>Email:</label>
+    <span th:text="${employee.emailId}"></span>
+
+    <label>Designation:</label>
+    <span th:text="${employee.designation}"></span>
+
+    <label>Salary:</label>
+    <span th:text="${employee.salary}"></span>
+</form>
+<a href="/" style="margin-top: 40px;">Back to Employee List</a>
+</body>
+</html>
